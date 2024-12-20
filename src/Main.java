@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Main {
     /**
@@ -41,8 +43,29 @@ public class Main {
          * @changelog
          * <ul>
          *   <li>2024-12-21: 패널에 컴포넌트 추가 (Baek Da Yeon)</li>
-         *   <li>22024-12-21: GridLayout으로 배치 (Baek Da Yeon)</li>
-         *   <li>22024-12-21: 콤보박스 추가 (Baek Da Yeon)</li>
+         *   <li>2024-12-21: GridLayout으로 배치 (Baek Da Yeon)</li>
+         *   <li>2024-12-21: 콤보박스 추가 (Baek Da Yeon)</li>
+         * </ul>
+         */
+
+        confirmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String name = nameField.getText();
+                String studentId = studentIdField.getText();
+                String selectedSubject = (String) subjectComboBox.getSelectedItem();
+                JOptionPane.showMessageDialog(frame, "이름 " + name + "\n학번 " + studentId + "\n과목: " + selectedSubject);
+            }
+        });
+
+        /**
+         * @author Baek Da Yeon
+         * @created 2024-12-21
+         * @lastModified 2024-12-21
+         *
+         * @changelog
+         * <ul>
+         *   <li>2024-12-21: 버튼 클릭 이벤트 추가 (Baek Da Yeon)</li>
          * </ul>
          */
 
