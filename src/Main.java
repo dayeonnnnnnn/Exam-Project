@@ -11,22 +11,25 @@ public class Main {
      * @changelog
      * <ul>
      *   <li>2024-12-21: 최초 생성 (Baek Da Yeon)</li>
-     *   <li>22024-12-21: 연결 풀링 기능 추가 (Baek Da Yeon)</li>
      * </ul>
      */
     public static void main(String[] args) {
         JFrame frame = new JFrame("Quiz system"); // JFrame 생성
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 2, 10, 10));
+        panel.setLayout(new GridLayout(4, 2, 10, 10));
 
         JTextField nameField = new JTextField(20);
         JTextField studentIdField = new JTextField(20);
         JButton confirmButton = new JButton("확인");
+        String[] subjects = {"Java", "GUI", "알고리즘 설계","빅데이터 처리" ,"운영체제"};
+        JComboBox<String> subjectComboBox = new JComboBox<>(subjects);
 
         panel.add(new JLabel("이름:")); // 레이블 추가
         panel.add(nameField); // 이름 입력 필드 추가
         panel.add(new JLabel("학번:")); // 레이블 추가
         panel.add(studentIdField); // 학번 입력 필드 추가
+        panel.add(new JLabel("과목:")); // 과목 레이블 추가
+        panel.add(subjectComboBox); //콤보박스 추가
         panel.add(confirmButton); // 확인 버튼 추가
 
         /**
@@ -38,7 +41,8 @@ public class Main {
          * @changelog
          * <ul>
          *   <li>2024-12-21: 패널에 컴포넌트 추가 (Baek Da Yeon)</li>
-         *   <li>22024-12-21: GridLayoutd으로 배치 (Baek Da Yeon)</li>
+         *   <li>22024-12-21: GridLayout으로 배치 (Baek Da Yeon)</li>
+         *   <li>22024-12-21: 콤보박스 추가 (Baek Da Yeon)</li>
          * </ul>
          */
 
