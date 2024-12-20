@@ -55,9 +55,16 @@ public class Main {
                 String studentId = studentIdField.getText();
                 String selectedSubject = (String) subjectComboBox.getSelectedItem();
 
-                JOptionPane.showMessageDialog(frame, "이름: " + name + "\n학번: " + studentId + "\n과목: " + selectedSubject);
-                //메시지 박스 추가
-                JOptionPane.showMessageDialog(null, "Starting the quiz...");// 퀴즈 시작 메시지 표시
+                int result = JOptionPane.showConfirmDialog(frame,
+                        "이름: " + name + "\n학번: " + studentId + "\n과목: " + selectedSubject,
+                        "확인",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE); // 아이콘을 없애기 위해 PLAIN_MESSAGE 사용
+
+
+                if (result == JOptionPane.OK_OPTION) {
+                    startQuiz();// OK를 클릭한 경우에만 메시지 표시
+                }
             }
         }); //see
         /**
@@ -69,6 +76,7 @@ public class Main {
          * <ul>
          *   <li>2024-12-21: 버튼 클릭 이벤트 추가 (Baek Da Yeon)</li>
          *   <li>2024-12-21: 퀴즈 로딩 화면 추가 (Baek Da Yeon)</li>
+         *   <li>2024-12-21: 퀴즈 로딩 화면 수정 (Baek Da Yeon)</li>
          * </ul>
          */
 
