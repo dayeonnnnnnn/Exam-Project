@@ -23,7 +23,7 @@ public class Main {
         JTextField nameField = new JTextField(20);
         JTextField studentIdField = new JTextField(20);
         JButton confirmButton = new JButton("확인");
-        String[] subjects = {"Java", "GUI", "알고리즘 설계","빅데이터 처리" ,"운영체제"};
+        String[] subjects = {"Java", "GUI", "알고리즘 설계", "빅데이터 처리", "운영체제"};
         JComboBox<String> subjectComboBox = new JComboBox<>(subjects);
 
         panel.add(new JLabel("이름:")); // 레이블 추가
@@ -54,10 +54,12 @@ public class Main {
                 String name = nameField.getText();
                 String studentId = studentIdField.getText();
                 String selectedSubject = (String) subjectComboBox.getSelectedItem();
-                JOptionPane.showMessageDialog(frame, "이름 " + name + "\n학번 " + studentId + "\n과목: " + selectedSubject);
-            }
-        });
 
+                JOptionPane.showMessageDialog(frame, "이름: " + name + "\n학번: " + studentId + "\n과목: " + selectedSubject);
+                //메시지 박스 추가
+                JOptionPane.showMessageDialog(null, "Starting the quiz...");// 퀴즈 시작 메시지 표시
+            }
+        }); //see
         /**
          * @author Baek Da Yeon
          * @created 2024-12-21
@@ -66,6 +68,7 @@ public class Main {
          * @changelog
          * <ul>
          *   <li>2024-12-21: 버튼 클릭 이벤트 추가 (Baek Da Yeon)</li>
+         *   <li>2024-12-21: 퀴즈 로딩 화면 추가 (Baek Da Yeon)</li>
          * </ul>
          */
 
@@ -73,5 +76,11 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel); // 패널을 프레임에 추가
         frame.setVisible(true); // 프레임을 화면에 표시
+        frame.setLocationRelativeTo(null);
     }
-}
+
+        private static void startQuiz() {
+
+            JOptionPane.showMessageDialog(null, "Starting the quiz...");// 퀴즈 시작 추가
+        }
+    } //see
