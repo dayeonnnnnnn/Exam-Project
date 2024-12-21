@@ -2,21 +2,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * @author Baek Da Yeon
+ *
+ * @created 2024-12-21
+ * @lastModified 2024-12-21
+ *
+ * @changelog
+ * <ul>
+ *   <li>2024-12-21: 최초 생성 (Baek Da Yeon)</li>
+ * </ul>
+ */
 
 public class Main {
-    /**
-     * @author Baek Da Yeon
-     *
-     * @created 2024-12-21
-     * @lastModified 2024-12-21
-     *
-     * @changelog
-     * <ul>
-     *   <li>2024-12-21: 최초 생성 (Baek Da Yeon)</li>
-     * </ul>
-     */
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Quiz system"); // JFrame 생성
+        JFrame frame = new JFrame("Quiz system");
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 2, 10, 10));
 
@@ -61,12 +64,11 @@ public class Main {
                         JOptionPane.OK_CANCEL_OPTION,
                         JOptionPane.PLAIN_MESSAGE); // 아이콘을 없애기 위해 PLAIN_MESSAGE 사용
 
-
                 if (result == JOptionPane.OK_OPTION) {
-                    startQuiz();// OK를 클릭한 경우에만 메시지 표시
+                    startQuiz(selectedSubject); // 선택한 과목을 인자로 전달
                 }
             }
-        }); //see
+        });//see
         /**
          * @author Baek Da Yeon
          * @created 2024-12-21
@@ -87,8 +89,46 @@ public class Main {
         frame.setLocationRelativeTo(null);
     }
 
-        private static void startQuiz() {
+    private static void startQuiz(String subject) {
+        // 각 과목에 대한 문제와 정답을 저장
+        JOptionPane.showMessageDialog(null, "Starting the quiz for: " + subject); // 선택한 과목으로 퀴즈 시작
 
-            JOptionPane.showMessageDialog(null, "Starting the quiz...");// 퀴즈 시작 추가
+        Map<String, String[]> questions = new HashMap<>();
+        Map<String, String[]> answers = new HashMap<>();
+
+        questions.put("Java", new String[]{
+                "Java의 창시자는 누구인가?",
+                "Java의 기본 데이터 타입이 아닌 것은?",
+                "Java에서 배열의 인덱스는 몇부터 시작하는가?"
+        });
+
+        answers.put("Java", new String[]{
+                "James Gosling",
+                "String",
+                "0"
+        }); //see
+        /**
+         * @author Baek Da Yeon
+         * @created 2024-12-21
+         * @lastModified 2024-12-21
+         *
+         * @changelog
+         * <ul>
+         *   <li>2024-12-21: 자바 퀴즈 추가 (Baek Da Yeon)</li>
+         * </ul>
+         */
+
+        // 퀴즈 시작
+        int score = 0;
+        for (int i = 0; i < 3; i++) {
+            String question = questions.get(subject)[i];
+            String correctAnswer = answers.get(subject)[i];
+
+            String userAnswer = JOptionPane.showInputDialog(null, question);
+            if (userAnswer != null && userAnswer.equalsIgnoreCase(correctAnswer)) {
+                score++;
+            }
         }
-    } //see
+
+    }
+}
