@@ -26,7 +26,7 @@ public class Main {
         JTextField nameField = new JTextField(20);
         JTextField studentIdField = new JTextField(20);
         JButton confirmButton = new JButton("확인");
-        String[] subjects = {"Java", "GUI", "알고리즘 설계", "빅데이터 처리", "운영체제"};
+        String[] subjects = {"Java", "GUI", "알고리즘 설계"};
         JComboBox<String> subjectComboBox = new JComboBox<>(subjects);
 
         panel.add(new JLabel("이름:")); // 레이블 추가
@@ -106,7 +106,19 @@ public class Main {
                 "James Gosling",
                 "String",
                 "0"
-        }); //see
+        });
+
+        questions.put("GUI", new String[]{
+                "Swing은 어떤 언어의 GUI 라이브러리인가?",
+                "JFrame은 무엇을 나타내는가?",
+                "Event Dispatch Thread는 무엇을 담당하는가?"
+        });
+
+        answers.put("GUI", new String[]{
+                "Java",
+                "윈도우",
+                "이벤트 처리"
+        });//see
         /**
          * @author Baek Da Yeon
          * @created 2024-12-21
@@ -115,6 +127,7 @@ public class Main {
          * @changelog
          * <ul>
          *   <li>2024-12-21: 자바 퀴즈 추가 (Baek Da Yeon)</li>
+         *   <li>2024-12-21: Gui 퀴즈 추가 (Baek Da Yeon)</li>
          * </ul>
          */
 
