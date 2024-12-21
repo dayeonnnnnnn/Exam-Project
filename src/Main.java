@@ -118,7 +118,18 @@ public class Main {
                 "Java",
                 "윈도우",
                 "이벤트 처리"
-        });//see
+        });
+        questions.put("알고리즘 설계", new String[]{
+                "최악의 경우 시간 복잡도가 O(n^2)인 정렬 알고리즘은?",
+                "다익스트라 알고리즘은 어떤 문제를 해결하는가?",
+                "동적 프로그래밍의 기본 아이디어는 무엇인가?"
+        });
+
+        answers.put("알고리즘 설계", new String[]{
+                "버블 정렬",
+                "최단 경로",
+                "최적 부분 구조"
+        }); //see
         /**
          * @author Baek Da Yeon
          * @created 2024-12-21
@@ -128,6 +139,7 @@ public class Main {
          * <ul>
          *   <li>2024-12-21: 자바 퀴즈 추가 (Baek Da Yeon)</li>
          *   <li>2024-12-21: Gui 퀴즈 추가 (Baek Da Yeon)</li>
+         *   <li>2024-12-21: 알고리즘 설계 퀴즈 추가 (Baek Da Yeon)</li>
          * </ul>
          */
 
