@@ -140,6 +140,7 @@ public class Main {
          *   <li>2024-12-21: 자바 퀴즈 추가 (Baek Da Yeon)</li>
          *   <li>2024-12-21: Gui 퀴즈 추가 (Baek Da Yeon)</li>
          *   <li>2024-12-21: 알고리즘 설계 퀴즈 추가 (Baek Da Yeon)</li>
+         *   <li>2024-12-22: 점수 결과 추가 (Baek Da Yeon)</li>
          * </ul>
          */
 
@@ -155,5 +156,6 @@ public class Main {
             }
         }
 
+        JOptionPane.showMessageDialog(null, " 맞힌 개수: " + score + " / 3"); // 결과 표시
     }
 }
