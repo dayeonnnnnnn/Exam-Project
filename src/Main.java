@@ -4,6 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  * @author Baek Da Yeon
  *
@@ -110,47 +114,31 @@ public class Main {
         frame.setLocationRelativeTo(null);
     }
 
+    private static void loadQuestionsFromFile(String filename) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(","); // CSV 파일의 각 줄을 쉼표로 분리
+                if (parts.length >= 3) {
+                    String subject = parts[0].trim();
+                    String question = parts[1].trim();
+                    String answer = parts[2].trim();
+
+                    // 질문과 답변을 맵에 추가
+                    questions.putIfAbsent(subject, new String[3]);
+                    answers.putIfAbsent(subject, new String[3]);
+                    // 질문과 답변을 적절한 위치에 추가하는 로직 필요
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static void startQuiz(String subject) {
-        // 각 과목에 대한 문제와 정답을 저장
+        loadQuestionsFromFile("questions.csv"); // CSV 파일에서 문제 로드
         JOptionPane.showMessageDialog(null, "Starting the quiz for: " + subject); // 선택한 과목으로 퀴즈 시작
-
-        Map<String, String[]> questions = new HashMap<>();
-        Map<String, String[]> answers = new HashMap<>();
-
-        questions.put("Java", new String[]{
-                "Java의 창시자는 누구인가?",
-                "Java의 기본 데이터 타입이 아닌 것은?",
-                "Java에서 배열의 인덱스는 몇부터 시작하는가?"
-        });
-
-        answers.put("Java", new String[]{
-                "James Gosling",
-                "String",
-                "0"
-        });
-
-        questions.put("GUI", new String[]{
-                "Swing은 어떤 언어의 GUI 라이브러리인가?",
-                "JFrame은 무엇을 나타내는가?",
-                "Event Dispatch Thread는 무엇을 담당하는가?"
-        });
-
-        answers.put("GUI", new String[]{
-                "Java",
-                "윈도우",
-                "이벤트 처리"
-        });
-        questions.put("알고리즘 설계", new String[]{
-                "최악의 경우 시간 복잡도가 O(n^2)인 정렬 알고리즘은?",
-                "다익스트라 알고리즘은 어떤 문제를 해결하는가?",
-                "동적 프로그래밍의 기본 아이디어는 무엇인가?"
-        });
-
-        answers.put("알고리즘 설계", new String[]{
-                "버블 정렬",
-                "최단 경로",
-                "최적 부분 구조"
-        }); //see
+        //see
         /**
          * @author Baek Da Yeon
          * @created 2024-12-21
@@ -162,6 +150,7 @@ public class Main {
          *   <li>2024-12-21: Gui 퀴즈 추가 (Baek Da Yeon)</li>
          *   <li>2024-12-21: 알고리즘 설계 퀴즈 추가 (Baek Da Yeon)</li>
          *   <li>2024-12-22: 점수 결과 추가 (Baek Da Yeon)</li>
+         *   <li>2024-12-22: cvs 파일 생성 후 추가 (Baek Da Yeon)</li>
          * </ul>
          */
 
