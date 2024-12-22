@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
-
 /**
  * @author Baek Da Yeon
  *
@@ -16,25 +15,47 @@ import java.util.Map;
  *   <li>2024-12-21: 최초 생성 (Baek Da Yeon)</li>
  * </ul>
  */
-
 public class Main {
+    private static JFrame frame;
+    private static JPanel panel;
+    private static JTextField nameField;
+    private static JTextField studentIdField;
+    private static JComboBox<String> subjectComboBox;
+    private static final Map<String, String[]> questions = new HashMap<>();
+    private static final Map<String, String[]> answers = new HashMap<>();
+    /**
+     * @author Baek Da Yeon
+     *
+     * @created 2024-12-21
+     * @lastModified 2024-12-21
+     *
+     * @changelog
+     * <ul>
+     *   <li>2024-12-23:gui로 수정(Baek Da Yeon)</li>
+     * </ul>
+     */
+
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Quiz system");
-        JPanel panel = new JPanel();
+        initializeQuizSystem();
+    }
+
+    private static void initializeQuizSystem() {
+        frame = new JFrame("Quiz System");
+        panel = new JPanel();
         panel.setLayout(new GridLayout(4, 2, 10, 10));
 
-        JTextField nameField = new JTextField(20);
-        JTextField studentIdField = new JTextField(20);
+        nameField = new JTextField(20);
+        studentIdField = new JTextField(20);
         JButton confirmButton = new JButton("확인");
         String[] subjects = {"Java", "GUI", "알고리즘 설계"};
-        JComboBox<String> subjectComboBox = new JComboBox<>(subjects);
+        subjectComboBox = new JComboBox<>(subjects);
 
         panel.add(new JLabel("이름:")); // 레이블 추가
         panel.add(nameField); // 이름 입력 필드 추가
         panel.add(new JLabel("학번:")); // 레이블 추가
         panel.add(studentIdField); // 학번 입력 필드 추가
         panel.add(new JLabel("과목:")); // 과목 레이블 추가
-        panel.add(subjectComboBox); //콤보박스 추가
+        panel.add(subjectComboBox); // 콤보박스 추가
         panel.add(confirmButton); // 확인 버튼 추가
 
         /**
