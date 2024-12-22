@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.Map;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Baek Da Yeon
@@ -19,6 +19,7 @@ import java.io.IOException;
  *   <li>2024-12-21: 최초 생성 (Baek Da Yeon)</li>
  * </ul>
  */
+
 public class Main {
     private static JFrame frame;
     private static JPanel panel;
@@ -27,6 +28,7 @@ public class Main {
     private static JComboBox<String> subjectComboBox;
     private static final Map<String, String[]> questions = new HashMap<>();
     private static final Map<String, String[]> answers = new HashMap<>();
+
     /**
      * @author Baek Da Yeon
      *
@@ -94,6 +96,7 @@ public class Main {
                 }
             }
         });//see
+
         /**
          * @author Baek Da Yeon
          * @created 2024-12-21
@@ -124,16 +127,35 @@ public class Main {
                     String question = parts[1].trim();
                     String answer = parts[2].trim();
 
-                    // 질문과 답변을 맵에 추가
-                    questions.putIfAbsent(subject, new String[3]);
+                    questions.putIfAbsent(subject, new String[3]); // 질문과 답변 csv에 추가
                     answers.putIfAbsent(subject, new String[3]);
-                    // 질문과 답변을 적절한 위치에 추가하는 로직 필요
+
+                    for (int i = 0; i < 3; i++) {
+                        if (questions.get(subject)[i] == null) {
+                            questions.get(subject)[i] = question;
+                            answers.get(subject)[i] = answer;
+                            break;
+                        }
+                    }
                 }
             }
-        } catch (IOException e) {
+        }//see
+
+        /**
+         * @author Baek Da Yeon
+         * @created 2024-12-21
+         * @lastModified 2024-12-21
+         *
+         * @changelog
+         * <ul>
+         *   <li>2024-12-23: 문제와 정답 추가 (Baek Da Yeon)</li>
+         * </ul>
+         */
+
+        catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    } //see
 
     private static void startQuiz(String subject) {
         loadQuestionsFromFile("questions.csv"); // CSV 파일에서 문제 로드
@@ -150,7 +172,7 @@ public class Main {
          *   <li>2024-12-21: Gui 퀴즈 추가 (Baek Da Yeon)</li>
          *   <li>2024-12-21: 알고리즘 설계 퀴즈 추가 (Baek Da Yeon)</li>
          *   <li>2024-12-22: 점수 결과 추가 (Baek Da Yeon)</li>
-         *   <li>2024-12-22: cvs 파일 생성 후 추가 (Baek Da Yeon)</li>
+         *   <li>2024-12-22: csv 파일 생성 후 추가 (Baek Da Yeon)</li>
          * </ul>
          */
 
