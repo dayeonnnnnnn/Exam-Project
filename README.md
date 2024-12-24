@@ -1,7 +1,11 @@
 <h1>퀴즈 시스템 프로그램</h1>
 <h2>1. 개요</h2>
 <h3>1.1. 목적</h3>
-![그림1](https://github.com/user-attachments/assets/67f7defb-10fe-4b24-9021-67f2e16b30cc)
+<li>![그림1](https://github.com/user-attachments/assets/67f7defb-10fe-4b24-9021-67f2e16b30cc)</li>
+<li>![그림2](https://github.com/user-attachments/assets/3aba840a-5eee-4133-8e40-82ad8e50df06)</li>
+<li>![그림3](https://github.com/user-attachments/assets/e2d75f4b-eb1d-4882-9a80-fcae05785ae4)</li>
+<li>![그림4](https://github.com/user-attachments/assets/0fad9e16-1bf9-4c9f-942d-8aa55eed38d4)</li>
+<p></p>
 <p>본 프로그램의 목적은 사용자가 선택한 과목에 대한 퀴즈를 제공하는 것입니다. 
   사용자는 이름과 학번을 입력하고 과목을 선택한 후 해당 과목에 대한 질문을 받고 답변을 통해 점수를 평가받습니다. 이 프로그램은 Java Swing을 사용하여 GUI 환경에서 동작합니다.</p>
 <h3>1.2. 대상</h3>
