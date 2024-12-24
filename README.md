@@ -33,7 +33,10 @@
 <h3>3.2. 클래스 다이어그램</h3>
 <p>클래스 다이어그램은 프로그램의 구조를 시각적으로 나타냅니다. 주요 클래스는 다음과 같습니다:</p>
 <ul>
-ㅊ속성: JFrame, JPanel, JTextField, JComboBox, Map&lt;String, String[]&gt; questions, Map&lt;String, String[]&gt; answers</li>
+  <li>![image](https://github.com/user-attachments/assets/694411fc-bd1e-456d-89f7-55652c10a0e1)</li>
+  <li>![image](https://github.com/user-attachments/assets/d9895ec7-03eb-437b-b38c-93d511385092)</li>
+  <P></P>
+<li>속성: JFrame, JPanel, JTextField, JComboBox, Map&lt;String, String[]&gt; questions, Map&lt;String, String[]&gt; answers</li>
 <li>메서드: main(), initializeQuizSystem(), loadQuestionsFromFile(String filename), startQuiz(String subject)</li>
 </ul>
 </li>
