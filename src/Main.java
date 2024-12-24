@@ -72,26 +72,34 @@ public class Main {
         JButton confirmButton = new JButton("확인");
         String[] subjects = {"Java", "GUI", "알고리즘 설계"};
         subjectComboBox = new JComboBox<>(subjects);
+        JLabel departmentLabel = new JLabel();
+        departmentLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        departmentLabel.setForeground(new Color(0, 102, 204));
 
-        panel.add(new JLabel("이름:")); // 레이블 추가
-        panel.add(nameField); // 이름 입력 필드 추가
-        panel.add(new JLabel("학번:")); // 레이블 추가
-        panel.add(studentIdField); // 학번 입력 필드 추가
-        panel.add(new JLabel("과목:")); // 과목 레이블 추가
         panel.add(subjectComboBox); // 콤보박스 추가
         panel.add(confirmButton); // 확인 버튼 추가
+
+        gbc.gridx = 0; gbc.gridy = 0; panel.add(new JLabel("이름:"), gbc);
+        gbc.gridx = 1; gbc.gridy = 0; panel.add(nameField, gbc);
+        gbc.gridx = 0; gbc.gridy = 1; panel.add(new JLabel("학번:"), gbc);
+        gbc.gridx = 1; gbc.gridy = 1; panel.add(studentIdField, gbc);
+        gbc.gridx = 0; gbc.gridy = 2; panel.add(new JLabel("과목:"), gbc);
+        gbc.gridx = 1; gbc.gridy = 2; panel.add(subjectComboBox, gbc);
+        gbc.gridx = 1; gbc.gridy = 3; panel.add(confirmButton, gbc);
+        gbc.gridx = 0; gbc.gridy = 4; gbc.gridwidth = 2; panel.add(departmentLabel, gbc); //see
 
         /**
          * @author Baek Da Yeon
          *
          * @created 2024-12-21
-         * @lastModified 2024-12-21
+         * @lastModified 2024-12-24
          *
          * @changelog
          * <ul>
          *   <li>2024-12-21: 패널에 컴포넌트 추가 (Baek Da Yeon)</li>
          *   <li>2024-12-21: GridLayout으로 배치 (Baek Da Yeon)</li>
          *   <li>2024-12-21: 콤보박스 추가 (Baek Da Yeon)</li>
+         *   <li>2024-12-24: GridBagLayout으로 수정 (Baek Da Yeon)</li>
          * </ul>
          */
 
