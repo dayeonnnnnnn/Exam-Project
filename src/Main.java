@@ -70,11 +70,30 @@ public class Main {
         studentIdField = new JTextField(20);
 
         JButton confirmButton = new JButton("확인");
+        confirmButton.setBackground(new Color(0, 102, 204));
+        confirmButton.setForeground(Color.WHITE);
+        confirmButton.setFocusPainted(false);
+        confirmButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        confirmButton.setFont(new Font("", Font.BOLD, 14));
+
+        /**
+         * @author Baek Da Yeon
+         *
+         * @created 2024-12-21
+         * @lastModified 2024-12-24
+         *
+         * @changelog
+         * <ul>
+         *   <li>2024-12-24: 버튼 색 변경 (Baek Da Yeon)</li>
+         * </ul>
+         */
+
         String[] subjects = {"Java", "GUI", "알고리즘 설계"};
         subjectComboBox = new JComboBox<>(subjects);
         JLabel departmentLabel = new JLabel();
         departmentLabel.setFont(new Font("Arial", Font.BOLD, 14));
         departmentLabel.setForeground(new Color(0, 102, 204));
+
 
         panel.add(subjectComboBox); // 콤보박스 추가
         panel.add(confirmButton); // 확인 버튼 추가
