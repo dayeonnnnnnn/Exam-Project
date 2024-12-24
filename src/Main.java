@@ -33,7 +33,7 @@ public class Main {
      * @author Baek Da Yeon
      *
      * @created 2024-12-21
-     * @lastModified 2024-12-21
+     * @lastModified 2024-12-23
      *
      * @changelog
      * <ul>
@@ -46,12 +46,14 @@ public class Main {
     }
 
     private static void initializeQuizSystem() {
+        UIManager.put("OptionPane.minimumSize", new Dimension(300, 150));
         frame = new JFrame("Quiz System");
         panel = new JPanel();
         panel.setLayout(new GridLayout(4, 2, 10, 10));
 
         nameField = new JTextField(20);
         studentIdField = new JTextField(20);
+
         JButton confirmButton = new JButton("확인");
         String[] subjects = {"Java", "GUI", "알고리즘 설계"};
         subjectComboBox = new JComboBox<>(subjects);
@@ -110,7 +112,7 @@ public class Main {
          * </ul>
          */
 
-        frame.setSize(400, 300); // 프레임의 크기 설정
+        frame.setSize(500, 400); // 프레임의 크기 설정
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel); // 패널을 프레임에 추가
         frame.setVisible(true); // 프레임을 화면에 표시
@@ -144,7 +146,7 @@ public class Main {
         /**
          * @author Baek Da Yeon
          * @created 2024-12-21
-         * @lastModified 2024-12-21
+         * @lastModified 2024-12-22
          *
          * @changelog
          * <ul>
@@ -164,7 +166,7 @@ public class Main {
         /**
          * @author Baek Da Yeon
          * @created 2024-12-21
-         * @lastModified 2024-12-21
+         * @lastModified 2024-12-22
          *
          * @changelog
          * <ul>
@@ -183,11 +185,27 @@ public class Main {
             String correctAnswer = answers.get(subject)[i];
 
             String userAnswer = JOptionPane.showInputDialog(null, question);
-            if (userAnswer != null && userAnswer.equalsIgnoreCase(correctAnswer)) {
+
+            if (userAnswer == null) {
+                JOptionPane.showMessageDialog(null, "퀴즈가 취소되었습니다.");
+                return; // 퀴즈 종료
+            }
+
+            /**
+             * @author Baek Da Yeon
+             * @created 2024-12-21
+             * @lastModified 2024-12-24
+             *
+             * @changelog
+             * <ul>
+             *   <li>2024-12-24: cancel 버튼 클릭 시 퀴즈 취소 (Baek Da Yeon)</li>
+             * </ul>
+             */
+
+            if (userAnswer.equalsIgnoreCase(correctAnswer)) {
                 score++;
             }
         }
-
         JOptionPane.showMessageDialog(null, " 맞힌 개수: " + score + " / 3"); // 결과 표시
     }
 }
