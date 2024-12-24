@@ -33,8 +33,8 @@
 <h3>3.2. 클래스 다이어그램</h3>
 <p>클래스 다이어그램은 프로그램의 구조를 시각적으로 나타냅니다. 주요 클래스는 다음과 같습니다:</p>
 <ul>
-  <img src='https://github.com/dayeonnnnnnn/Exam-Project/blob/master/그림02.jpg' width="300" />
   <img src='https://github.com/dayeonnnnnnn/Exam-Project/blob/master/그림03.jpg' width="300" />
+  <img src='https://github.com/dayeonnnnnnn/Exam-Project/blob/master/그림02.jpg' width="300" />
  
   <P></P>
 <li>속성: JFrame, JPanel, JTextField, JComboBox, Map&lt;String, String[]&gt; questions, Map&lt;String, String[]&gt; answers</li>
