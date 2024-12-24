@@ -49,7 +49,22 @@ public class Main {
         UIManager.put("OptionPane.minimumSize", new Dimension(300, 150));
         frame = new JFrame("Quiz System");
         panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 2, 10, 10));
+        panel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        panel.setBackground(new Color(240, 240, 240)); //see
+
+        /**
+         * @author Baek Da Yeon
+         *
+         * @created 2024-12-21
+         * @lastModified 2024-12-24
+         *
+         * @changelog
+         * <ul>
+         *   <li>2024-12-21: 퀴즈 창 변경 (Baek Da Yeon)</li>
+         * </ul>
+         */
 
         nameField = new JTextField(20);
         studentIdField = new JTextField(20);
@@ -189,7 +204,7 @@ public class Main {
             if (userAnswer == null) {
                 JOptionPane.showMessageDialog(null, "퀴즈가 취소되었습니다.");
                 return; // 퀴즈 종료
-            }
+            } //see
 
             /**
              * @author Baek Da Yeon
